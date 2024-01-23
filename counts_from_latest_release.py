@@ -81,10 +81,9 @@ st.markdown(hide_decoration_bar_style, unsafe_allow_html=True)
 
 css = '''
 <style>
-    [data-testid="ScrollToBottomContainer"] {
-        overflow: hidden;
+    * {
+        overflow: hidden !important;
     }
 </style>
 '''
-
 st.markdown(css, unsafe_allow_html=True)
