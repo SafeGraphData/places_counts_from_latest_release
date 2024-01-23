@@ -84,6 +84,11 @@ css = '''
 section.main > div:has(~ footer ) {
     padding-bottom: 0px;
 }
+
+[data-testid="ScrollToBottomContainer"] {
+    overflow: hidden;
+}
 </style>
 '''
+
 st.markdown(css, unsafe_allow_html=True)
