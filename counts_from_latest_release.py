@@ -63,3 +63,18 @@ st.write(f"Total POI count across countries, including parking lots POI is <b>{t
 st.dataframe(latest_release_df_styled, use_container_width=True,hide_index=True)
 st.write("Latest Release - Parking")
 st.dataframe(parking_lots_df_styled, use_container_width=True,hide_index=True)
+
+hide_streamlit_style = """
+            <style>
+            [data-testid="stToolbar"] {visibility: hidden !important;}
+            footer {visibility: hidden !important;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
+hide_decoration_bar_style = '''
+    <style>
+        header {visibility: hidden;}
+    </style>
+'''
+st.markdown(hide_decoration_bar_style, unsafe_allow_html=True)
