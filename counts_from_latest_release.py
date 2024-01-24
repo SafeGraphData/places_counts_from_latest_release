@@ -1,5 +1,5 @@
 import streamlit as st
-from ..external_summary_stats.read_data import read_from_gsheets
+from .external_summary_stats.read_data import read_from_gsheets
 import altair as alt
 from datetime import datetime, timedelta
 import pandas as pd
