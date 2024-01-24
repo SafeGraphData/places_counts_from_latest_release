@@ -58,8 +58,8 @@ parking_lots_df_styled = (
         "Total POI": "{:,.0f}"
     })
 )
-
-st.write(f"Total POI count across countries, including parking lots POI is <b>{total_poi:,.0f}</b>", unsafe_allow_html=True)
+st.markdown(f"### Total POI count across countries, including parking lots POI is <b>{total_poi:,.0f}</b>")
+#st.write(, unsafe_allow_html=True)
 st.dataframe(latest_release_df_styled, use_container_width=True,hide_index=True)
 st.write("Latest Release - Parking")
 st.dataframe(parking_lots_df_styled, use_container_width=True,hide_index=True)
