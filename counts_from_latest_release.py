@@ -12,11 +12,12 @@ st.set_page_config(
     layout="wide"
 )
 #### Latest Release ####
+filter_list = ["US", "Rest of World", "Grand Total"]
 latest_release_df = (
     read_from_gsheets("Global Places")
     [["Country", "Total POI with Parking Lots", "Distinct brands", "Branded POI", "Total POI"]]
     .tail(7)
-    .query('iso_country_code IN ["US", "Rest of World", "Grand Total"]')
+    .query('iso_country_code  == @filter_list')
     .assign(
         **{
             "Total POI with Parking Lots": lambda df: df["Total POI with Parking Lots"].str.replace(",", "").astype(float),
