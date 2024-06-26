@@ -16,6 +16,7 @@ latest_release_df = (
     read_from_gsheets("Global Places")
     [["Country", "Total POI with Parking Lots", "Distinct brands", "Branded POI", "Total POI"]]
     .tail(7)
+    .query('iso_country_code IN ("US", "Rest of World", "Grand Total")')
     .assign(
         **{
             "Total POI with Parking Lots": lambda df: df["Total POI with Parking Lots"].str.replace(",", "").astype(float),
