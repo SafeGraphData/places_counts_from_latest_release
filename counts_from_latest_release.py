@@ -12,11 +12,11 @@ st.set_page_config(
     layout="wide"
 )
 #### Latest Release ####
-filter_list = ["US", "Rest of World", "Grand Total"]
+filter_list = ["US", "Excluding US", "Grand Total"]
 latest_release_df = (
     read_from_gsheets("Global Places")
     [["Country", "Total POI with Parking Lots", "Distinct brands", "Branded POI", "Total POI"]]
-    .tail(7)
+    .tail(8)
     .query('Country  == @filter_list')
     .assign(
         **{
@@ -30,6 +30,8 @@ latest_release_df = (
     .drop(["Branded POI", "Total POI"], axis=1)
     .reset_index(drop=True)
 )
+
+latest_release_df.loc[latest_release_df.Country == "Excluding US", 'Country'] = 'Rest of World'
 
 latest_release_df_styled = (
     latest_release_df.style
